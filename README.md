@@ -11,6 +11,9 @@ Cloudformation using sd-web-ui-cf-template.yaml, setup using setup.sh.
 ```aws cloudformation list-stack-resources --stack-name sd-webui-stack --query 'StackResourceSummaries[?ResourceType==`AWS::EC2::EIP`].PhysicalResourceId' --output text```
 
 ### Restart Stack once SSHed
+```
+sudo chmod 777 ./
+```
 Run on linux with cpu
 `bash webui.sh  --skip-torch-cuda-test --api` 
 Run on linx with gpu
