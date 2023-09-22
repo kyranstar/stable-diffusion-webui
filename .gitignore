@@ -39,3 +39,4 @@ notification.mp3
 /.coverage*
 
 .DS_Store
+log.txt

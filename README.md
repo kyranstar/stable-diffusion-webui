@@ -1,20 +1,32 @@
+# Stable diffusion web UI
+
+## Kyranstar deploy section
+
+Cloudformation using sd-web-ui-cf-template.yaml, setup using setup.sh.
+
+### Create stack
+`aws cloudformation create-stack --stack-name sd-webui-stack --template-body file://sd-web-ui-cf-template.yaml`
+
+### Get IP of Stack
+```aws cloudformation list-stack-resources --stack-name sd-webui-stack --query 'StackResourceSummaries[?ResourceType==`AWS::EC2::EIP`].PhysicalResourceId' --output text```
+
+### Restart Stack once SSHed
+Run on linux with cpu
+`bash webui.sh  --skip-torch-cuda-test --api` 
+Run on linx with gpu
+`bash webui.sh  --api`
+
+### Delete stack
+`aws cloudformation delete-stack --stack-name sd-webui-stack`
+
+### Access online 
+<IP address>:7860
+
+
 # Stable Diffusion web UI
 A browser interface based on Gradio library for Stable Diffusion.
 
 ![](screenshot.png)
-
-# Kyranstar deploy section
-Cloudformation using sd-web-ui-cf-template.yaml, setup using setup.sh.
-
-## Create stack
-aws cloudformation create-stack --stack-name sd-webui-stack --template-body file://sd-web-ui-cf-template.yaml
-
-## Test deployment
-aws cloudformation list-stack-resources --stack-name sd-webui-stack --query 'StackResourceSummaries[?ResourceType==`AWS::EC2::EIP`].PhysicalResourceId' --output text
-
-## Delete stack
-aws cloudformation delete-stack --stack-name sd-webui-stack
-
 
 ## Features
 [Detailed feature showcase with images](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features):
