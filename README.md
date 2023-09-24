@@ -12,10 +12,11 @@ Cloudformation using sd-web-ui-cf-template.yaml, setup using setup.sh.
 
 ### Restart Stack once SSHed
 ```
-sudo chmod 777 ./
+cd stable-diffusion-webui
+sudo chmod 777 ./ -R
 ```
 Run on linux with cpu
-`bash webui.sh  --skip-torch-cuda-test --api` 
+`bash webui.sh  --skip-torch-cuda-test --api  --no-half` 
 Run on linx with gpu
 `bash webui.sh  --api`
 
