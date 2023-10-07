@@ -36,6 +36,7 @@ Resources:
             #!/bin/bash
             cd /home/ubuntu
             git clone https://github.com/kyranstar/stable-diffusion-webui.git
+            sudo chmod -R 777 stable-diffusion-webui
   MyEIP:
     Type: AWS::EC2::EIP
   MyEIPAssociation:

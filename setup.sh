@@ -61,7 +61,7 @@ bash <(curl -sSL https://g.bodaay.io/hfd) -m Nacholmo/controlnet-qr-pattern-v2:s
 sudo chown -R ubuntu:ubuntu stable-diffusion-webui/
 sudo chmod -R 777 stable-diffusion-webui/
 
-touch server_started_marker.txt
+# touch server_started_marker.txt
 
 # start the server as user 'ubuntu'
-sudo -u ubuntu nohup bash stable-diffusion-webui/webui.sh --share > log.txt
+# sudo -u ubuntu nohup bash stable-diffusion-webui/webui.sh --share > log.txt
