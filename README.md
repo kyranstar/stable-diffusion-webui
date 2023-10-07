@@ -7,18 +7,22 @@ Cloudformation using sd-web-ui-cf-template.yaml, setup using setup.sh.
 ### Create stack
 `aws cloudformation create-stack --stack-name sd-webui-stack --template-body file://sd-web-ui-cf-template.yaml`
 
-### Get IP of Stack
-```aws cloudformation list-stack-resources --stack-name sd-webui-stack --query 'StackResourceSummaries[?ResourceType==`AWS::EC2::EIP`].PhysicalResourceId' --output text```
-
-### Restart Stack once SSHed
+To setup and run the stack, first ssh into it (can use AWS connect).
+Then run
 ```
+bash stable-diffusion-webui/setup.sh
+bash stable-diffusion-webui/setup_models.sh
 cd stable-diffusion-webui
-sudo chmod 777 ./ -R
 ```
+
 Run on linux with cpu
 `bash webui.sh  --skip-torch-cuda-test --api  --no-half` 
 Run on linx with gpu
 `bash webui.sh  --api`
+
+### Get IP of Stack
+```aws cloudformation list-stack-resources --stack-name sd-webui-stack --query 'StackResourceSummaries[?ResourceType==`AWS::EC2::EIP`].PhysicalResourceId' --output text```
+
 
 ### Delete stack
 `aws cloudformation delete-stack --stack-name sd-webui-stack`

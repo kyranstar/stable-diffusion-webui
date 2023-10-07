@@ -28,35 +28,6 @@ git clone https://github.com/richrobber2/canvas-zoom stable-diffusion-webui/exte
 git clone https://github.com/Coyote-A/ultimate-upscale-for-automatic1111 stable-diffusion-webui/extensions/ultimate-upscale
 git clone https://github.com/Mikubill/sd-webui-controlnet stable-diffusion-webui/extensions/controlnet
 
-
-# download the SD model v2.1 and move it to the SD model directory
-sudo -u ubuntu git clone --depth 1 https://huggingface.co/stabilityai/stable-diffusion-2-1-base
-cd stable-diffusion-2-1-base/
-sudo -u ubuntu git lfs pull --include "v2-1_512-ema-pruned.ckpt"
-sudo -u ubuntu git lfs install --force
-cd ..
-mv stable-diffusion-2-1-base/v2-1_512-ema-pruned.ckpt stable-diffusion-webui/models/Stable-diffusion/
-rm -rf stable-diffusion-2-1-base/
-
-# download the corresponding config file and move it also to the model directory (make sure the name matches the model name)
-wget https://raw.githubusercontent.com/Stability-AI/stablediffusion/main/configs/stable-diffusion/v2-inference.yaml
-cp v2-inference.yaml stable-diffusion-webui/models/Stable-diffusion/v2-1_512-ema-pruned.yaml
-
-## Download additional models
-git clone https://github.com/ashleykleynhans/civitai-downloader.git
-mv civitai-downloader/download.sh /usr/local/bin/download-model
-chmod +x /usr/local/bin/download-model
-
-download-model https://civitai.com/api/download/models/76907 stable-diffusion-webui/models/Stable-diffusion/
-download-model https://civitai.com/api/download/models/46137 stable-diffusion-webui/models/Stable-diffusion/
-
-# Download all controlnet models
-# can use this script: https://github.com/bodaay/HuggingFaceModelDownloader
-mkdir stable-diffusion-webui/extensions/controlnet/models
-bash <(curl -sSL https://g.bodaay.io/hfd) -m lllyasviel/ControlNet-v1-1:pth -s stable-diffusion-webui/extensions/controlnet/models
-bash <(curl -sSL https://g.bodaay.io/hfd) -m monster-labs/control_v1p_sd15_qrcode_monster:safetensors -s stable-diffusion-webui/extensions/controlnet/models
-bash <(curl -sSL https://g.bodaay.io/hfd) -m Nacholmo/controlnet-qr-pattern-v2:safetensors -s stable-diffusion-webui/extensions/controlnet/models
-
 # change ownership of the web UI so that a regular user can start the server
 sudo chown -R ubuntu:ubuntu stable-diffusion-webui/
 sudo chmod -R 777 stable-diffusion-webui/
