@@ -19,6 +19,7 @@ chmod +x /usr/local/bin/download-model
 
 download-model https://civitai.com/api/download/models/76907 stable-diffusion-webui/models/Stable-diffusion/
 download-model https://civitai.com/api/download/models/46137 stable-diffusion-webui/models/Stable-diffusion/
+download-model https://civitai.com/api/download/models/90854 stable-diffusion-webui/models/Stable-diffusion/
 
 # Download all controlnet models
 mkdir stable-diffusion-webui/extensions/controlnet/models
