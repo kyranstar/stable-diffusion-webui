@@ -16,13 +16,10 @@ cd stable-diffusion-webui
 ```
 
 Run on linux with cpu
-`bash webui.sh  --skip-torch-cuda-test --api  --no-half` 
+`bash webui.sh  --skip-torch-cuda-test --api  --no-half --share` 
 Run on linx with gpu
-`bash webui.sh  --api`
-
-### Get IP of Stack
-```aws cloudformation list-stack-resources --stack-name sd-webui-stack --query 'StackResourceSummaries[?ResourceType==`AWS::EC2::EIP`].PhysicalResourceId' --output text```
-
+`bash webui.sh  --api --share`
+After running this, find the gradio URL it prints and go to it in a browser.
 
 ### Delete stack
 `aws cloudformation delete-stack --stack-name sd-webui-stack`

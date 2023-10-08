@@ -11,6 +11,8 @@ sudo sh cuda_12.0.0_525.60.13_linux.run --silent
 # tool to download models
 sudo apt install -y aria2
 
+sudo apt-get install libjpeg8-dev
+
 # install perf tools
 sudo apt install -y --no-install-recommends google-perftools
 
