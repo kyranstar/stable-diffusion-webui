@@ -34,6 +34,10 @@ git clone https://github.com/Mikubill/sd-webui-controlnet stable-diffusion-webui
 sudo chown -R ubuntu:ubuntu stable-diffusion-webui/
 sudo chmod -R 777 stable-diffusion-webui/
 
+sudo chmod 777 /etc/
+mkdir /etc/nginx
+touch /etc/nginx/nginx.conf
+cat 'http { fastcgi_read_timeout 999999; proxy_read_timeout 999999; }' > /etc/nginx/nginx.conf
 # touch server_started_marker.txt
 
 # start the server as user 'ubuntu'
