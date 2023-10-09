@@ -11,7 +11,7 @@ sudo sh cuda_12.0.0_525.60.13_linux.run --silent
 # tool to download models
 sudo apt install -y aria2
 
-sudo apt-get install libjpeg8-dev
+sudo apt-get install -y libjpeg8-dev
 
 # install perf tools
 sudo apt install -y --no-install-recommends google-perftools
@@ -37,7 +37,7 @@ sudo chmod -R 777 stable-diffusion-webui/
 sudo chmod 777 /etc/
 mkdir /etc/nginx
 touch /etc/nginx/nginx.conf
-cat 'http { fastcgi_read_timeout 999999; proxy_read_timeout 999999; }' > /etc/nginx/nginx.conf
+echo 'http { fastcgi_read_timeout 999999; proxy_read_timeout 999999; }' > /etc/nginx/nginx.conf
 # touch server_started_marker.txt
 
 # start the server as user 'ubuntu'

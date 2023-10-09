@@ -11,7 +11,7 @@ To setup and run the stack, first ssh into it (can use AWS connect).
 Then run
 ```
 bash stable-diffusion-webui/setup.sh
-bash stable-diffusion-webui/setup_models.sh
+(Optional) bash stable-diffusion-webui/setup_models.sh
 cd stable-diffusion-webui
 ```
 
